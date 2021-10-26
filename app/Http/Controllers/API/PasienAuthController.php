@@ -7,7 +7,6 @@ use App\Pasien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
 
 class PasienAuthController extends Controller
 {
@@ -56,16 +55,16 @@ class PasienAuthController extends Controller
 
     public function login(Request $request){
 
-        $credentiial = $request->all();
-        
-        if (!Auth::guard('patient')->attempt($credentiial)){
+        $user = Pasien::where('email', $request->email)->first();
+
+        if (! $user || ! Hash::check($request->password, $user->password)) {
             return response()->json([
                 'code' => 400,
-                'pesan' => "anda belum memiliki akun, silahkan registrasi"
+                'pesan' => "gagal login"
             ]);
         }
 
-        $user = Pasien::where('email', $request->email)->first();
+        $user->tokens()->delete();
 
         $token = $user->createToken('access_token');
 
@@ -84,4 +83,22 @@ class PasienAuthController extends Controller
             ]
         ]);
     }
+
+    public function logout(Request $request){
+        return "logout";
+    }
+
+//     - Request 
+// ```json
+// {
+//     "access_token" : "akses token anda"
+// }
+// ```
+// - Response
+// ```json
+// {
+//     "code" : 200,
+//     "pesan": "Logout Berhasil"
+// }
+// ```
 }

@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/patient')->group(function () {
     Route::post('/register', 'API\PasienAuthController@register');
     Route::post('/login', 'API\PasienAuthController@login');
+    Route::post('/logout', 'API\PasienAuthController@logout');
 });

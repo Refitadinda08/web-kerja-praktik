@@ -55,7 +55,7 @@
 - Request 
 ```json
 {
-    "access_token" : "akses token anda"
+    "id" : "id pasien"
 }
 ```
 - Response
