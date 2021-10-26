@@ -1,7 +1,9 @@
 # API SPESIFICATION
 
 ## Register Pasien
-- Request 
+- Request
+- METHOD : POST
+- Endpoint: '/api/patient/register' 
 ```json
 {
     "nama" : "String (nama pasien)",
@@ -27,7 +29,9 @@
 ```
 
 ## Login Pasien
-- Request 
+- Request
+- METHOD : POST 
+- Endpoint: '/api/patient/login' 
 ```json
 {
     "email": "String (email pasien)",
@@ -52,7 +56,9 @@
 
 
 ## Logout Pasien
-- Request 
+- Request
+- METHOD : POST 
+- Endpoint: '/api/patient/logout' 
 ```json
 {
     "id" : "id pasien"
@@ -69,6 +75,8 @@
 
 ## Update Pasien
 - Request
+- METHOD : POST
+- Endpoint: '/api/patient/update' 
   - Header
     - Authorization : Bearer
 ```json
@@ -94,6 +102,7 @@
 
 ## Riwayat Pemeriksaan
 - Request
+- Endpoint: '/api/monitoring/patient' 
   - Header
     - Authorization : Bearer
 - Response

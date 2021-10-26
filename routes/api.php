@@ -19,4 +19,12 @@ Route::prefix('/patient')->group(function () {
     Route::post('/register', 'API\PasienAuthController@register');
     Route::post('/login', 'API\PasienAuthController@login');
     Route::post('/logout', 'API\PasienAuthController@logout');
+    
+    Route::group(['middleware' => ['auth:sanctum']], function(){
+        Route::post('/update', 'API\PasienAuthController@update');
+    });
+});
+
+Route::prefix('/monitoring')->group(function(){
+    Route::post('/insert', 'API\MonitoringController@insert');
 });

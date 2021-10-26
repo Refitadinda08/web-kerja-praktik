@@ -85,20 +85,44 @@ class PasienAuthController extends Controller
     }
 
     public function logout(Request $request){
-        return "logout";
+        $user = Pasien::where('id', $request->id)->first();
+
+        if (!$user) {
+            return response()->json([
+                'code' => 400,
+                'pesan' => "gagal logout"
+            ]);
+        }
+
+        $user->tokens()->delete();
+
+        return response()->json([
+            'code' => 200,
+            'pesan' => "login berhasil"
+        ]);
     }
 
-//     - Request 
-// ```json
-// {
-//     "access_token" : "akses token anda"
-// }
-// ```
-// - Response
-// ```json
-// {
-//     "code" : 200,
-//     "pesan": "Logout Berhasil"
-// }
-// ```
+    public function update(Request $request){
+        $user = $request->user();
+        $userToken = $user->currentAccessToken();
+
+        if($userToken){
+            $user->update([
+                'nama_pasien' => $request->name,
+                'umur_pasien' => $request->umur,
+                'alamat_pasien' => $request->alamat
+            ]);
+
+            return response()->json([
+                'code' => 200,
+                'pesan' => "Update pasien berhasil",
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->nama_pasien,
+                    'umur' => $user->umur_pasien,
+                    'alamat' => $user->alamat_pasien
+                ]
+            ]);
+        }
+    }
 }
