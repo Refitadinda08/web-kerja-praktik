@@ -7,7 +7,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">DATA PASIEN</h4>
+                  <h4 class="card-title ">{{$pagename}}</h4>
                   <p class="card-category"> Here is a subtitle for this table</p>
                 </div>
                 <div class="card-body">
@@ -21,33 +21,38 @@
                           Name
                         </th>
                         <th>
-                          Alamat 
+                          Country
                         </th>
                         <th>
-                          Umur 
+                          City
                         </th>
                         <th>
                         </th>
                       </thead>
                       <tbody>
-                        @foreach ($data as $i =>$pass)
                         <tr>
-                          <td>  {{ ++$i }}</td>
-                          <td>  {{ $pass->nama_pasien }}</td>
-                          <td> {{ $pass->alamat_pasien }} </td>
-                          <td>  {{ $pass->umur_pasien }} </td>
                           <td>
-                          <a href="{{ route('pasien-edit', $pass->id) }}" class="btn btn-primary">Edit</a>
-                         
-                          <form action="{{ route('pasien-delete', $pass->id) }}" method="post">
+                            1
+                          </td>
+                          <td>
+                            Dakota Rice
+                          </td>
+                          <td>
+                            Niger
+                          </td>
+                          <td>
+                            Oud-Turnhout
+                          </td>
+                          <td>
+                          <a href="{{route('Pasien-Edit')}}" class="btn btn-primary">Edit</a></td>
+                          <td>
+                          <form action="" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Hapus</button>
-                          </form>
-                        </td>
+                                        </form>
+                          </td>
                         </tr>
-                        @endforeach
-                        
                       </tbody>
                     </table>
                   </div>
@@ -56,5 +61,5 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
 @endsection

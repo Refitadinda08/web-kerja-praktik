@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PasienController;
+use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
  
 Route::get('/dashboard', 'indexController@index')->name('index');
 
-Route::get('/patients', function(){
-    return "Halaman daftar Pasien";
-})->name('daftar-pasien');
+Route::get('/patients', 'PasienController@index')->name('daftar-pasien');
+
+Route::get('/patients/edit{id}', 'PasienController@edit')->name('pasien-edit');
+Route::put('/patients/{id}', 'PasienController@update')->name('pasien-update');
+Route::delete('/patients/{id}', 'PasienController@destroy')->name('pasien-delete');
+
+Route::get('/laporan', 'LaporanController@index')->name('laporan');

@@ -33,8 +33,6 @@
 
       @yield('content')
 
-      {{-- bottom --}}
-      @include('admin.layout.bottom')
     </div>
   </div>
   <div class="fixed-plugin">

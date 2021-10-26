@@ -46,6 +46,12 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'patient' => [
+            'driver' => 'token',
+            'provider' => 'patients',
+            'hash' => true,
+        ]
     ],
 
     /*
@@ -71,6 +77,10 @@ return [
             'model' => App\User::class,
         ],
 
+        'patients' => [
+            'driver' => 'eloquent',
+            'model' => App\Pasien::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -95,6 +105,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'patients' => [
+            'provider' => 'patients',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
