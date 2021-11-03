@@ -9,12 +9,13 @@ class CreateSensorsTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @retur n void
      */
     public function up()
     {
         Schema::create('sensors', function (Blueprint $table) {
             $table->id();
+            $table->string('id_pemeriksaan')->nullable();
             $table->string('fhr')->nullable();
             $table->string('toco')->nullable();
             $table->timestamps();

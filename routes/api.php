@@ -26,5 +26,10 @@ Route::prefix('/patient')->group(function () {
 });
 
 Route::prefix('/monitoring')->group(function(){
-    Route::post('/insert', 'API\MonitoringController@insert');
+    Route::post('/insert', 'API\MonitoringController@insertSensor');
+    
+    Route::group(['middleware' => ['auth:sanctum']], function(){
+        Route::get('/patient', 'API\MonitoringController@getRiwayatMonitoring');
+        Route::post('/patient', 'API\MonitoringController@getDetailRiwayatMonitoring');
+    });
 });
