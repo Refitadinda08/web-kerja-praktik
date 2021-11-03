@@ -20,6 +20,7 @@ class CreatePasiensTable extends Migration
             $table->string('password');
             $table->string('alamat_pasien')->nullable();
             $table->integer('umur_pasien')->nullable();
+            $table->string('total_pemeriksaan')->default(0);
             $table->timestamps();
         });
     }

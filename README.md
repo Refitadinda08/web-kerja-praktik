@@ -133,26 +133,26 @@
     "records" : [
         {
             "id_pemeriksaan": 1,
-            "fhr": 138,
-            "toco": 12,
+            "avg_fhr": 138,
+            "avg_toco": 12,
             "created_at" : "2021-08-24"
         },
         {
             "id_pemeriksaan": 2,
-            "fhr": 138,
-            "toco": 12,
+            "avg_fhr": 138,
+            "avg_toco": 12,
             "created_at" : "2021-08-24"
         },
         {
             "id_pemeriksaan": 3,
-            "fhr": 138,
-            "toco": 12,
+            "avg_fhr": 138,
+            "avg_toco": 12,
             "created_at" : "2021-08-24"
         },
         {
             "id_pemeriksaan": 4,
-            "fhr": 138,
-            "toco": 12,
+            "avg_fhr": 138,
+            "avg_toco": 12,
             "created_at" : "2021-08-24"
         },
     ],
